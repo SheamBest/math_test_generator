@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор тестів</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Генератор тестів</h1>
+        <div id="auth-buttons">
+            {% if user_logged_in %}
+                <span>Вітаю, {{ user }}!</span>
+                <button onclick="window.location.href='/saved-tests'">Мої тести</button>
+                <a href="/logout" class="button">Вийти з акаунта</a>
+            {% else %}
+                <a href="/register" class="button">Реєстрація</a>
+                <a href="/login" class="button">Авторизація</a>
+            {% endif %}
+        </div>
+    </header>
+    <main>
+        <div id="main-buttons">
+            <button onclick="generateTest()">Генерувати тест</button>
+            <button onclick="loadTests()">Завантажити тест</button>
+            <button onclick="addTest()">Додати тест</button>
+        </div>
+        <div id="tests-container">
+            <h2>Тести</h2>
+            <div id="tests"></div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Генератор тестів</p>
+    </footer>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
